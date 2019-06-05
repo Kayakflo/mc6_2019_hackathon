@@ -8,12 +8,14 @@
 
 import Foundation
 import SwiftSocket
+import VideoToolbox
 
-class SocketController {
+class SocketController: VideoFrameDecoderDelegate {
     static var singleton: SocketController = SocketController()
     var commandClient: UDPClient!
     var streamServer: UDPServer!
     var statusServer: UDPServer!
+    var onImage: (_ image: CGImage) -> () = { arg in }
     
     func initCommandClient() {
         if self.commandClient == nil {
@@ -21,9 +23,9 @@ class SocketController {
             commandClient.send(string: "command")
             sleep(5)
             commandClient.send(string: "streamon")
-            commandClient.send(string: "takeoff")
+            //commandClient.send(string: "takeoff")
             sleep(5)
-            commandClient.send(string: "land")
+            //commandClient.send(string: "land")
             commandClient.close()
         }
     }
@@ -35,27 +37,36 @@ class SocketController {
         }
     }
     
-    func initStreamServer(onData: ([Byte]) -> ()) {
+    func initStreamServer(onImage: @escaping (_ image: CGImage) -> ()) {
+        self.onImage = onImage
         streamServer = UDPServer(address: "0.0.0.0", port: 11111)
         var currentImg: [Byte] = []
-        while true {
-            let (data, remoteip, remoteport) = streamServer.recv(2048)
-            if let d = data {
-                if d.count == 1460 {
-                    if currentImg.count == 0 {
-                        print("START FOUND")
-                        currentImg = d
-                    } else {
-                        currentImg = currentImg + d
-                        print("Part")
-                    }
-                } else if d.count < 1460 {
+        DispatchQueue.global(qos: .background).async {
+            while true {
+                let (data, remoteip, remoteport) = self.streamServer.recv(2048)
+                if var d = data {
                     currentImg = currentImg + d
-                    print("END FOUND")
-                    currentImg = []
+                    
+                    if d.count < 1460 && currentImg.count > 40 {
+                        VideoFrameDecoder.delegate = self
+                        let dec: VideoFrameDecoder = VideoFrameDecoder()
+                        dec.interpretRawFrameData(&currentImg)
+                        currentImg = []
+                    }
                 }
-//                onData(d)
             }
+        }
+    }
+    
+    func receivedDisplayableFrame(_ frame: CVPixelBuffer) {
+        var cgImage: CGImage?
+        VTCreateCGImageFromCVPixelBuffer(frame, options: nil, imageOut: &cgImage)
+        
+        if let cgImage = cgImage {
+            print("We have an image")
+            self.onImage(cgImage)
+        } else {
+            print("Fail")
         }
     }
 }
