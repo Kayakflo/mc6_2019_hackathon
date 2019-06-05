@@ -12,9 +12,13 @@
 		5C08B7A622A6C4220001A750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C08B7A422A6C4220001A750 /* Main.storyboard */; };
 		5C08B7A822A6C4240001A750 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C08B7A722A6C4240001A750 /* Assets.xcassets */; };
 		5C08B7AB22A6C4240001A750 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C08B7A922A6C4240001A750 /* LaunchScreen.storyboard */; };
+		5C08B7B522A6C59C0001A750 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C08B7B422A6C59C0001A750 /* APIController.swift */; };
+		5C08B7B722A6C5BD0001A750 /* SocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C08B7B622A6C5BD0001A750 /* SocketController.swift */; };
+		7889D51903E04B71CBB016AC /* Pods_mc6_2019_hackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1F5CFB79AD2579EACE9B08 /* Pods_mc6_2019_hackathon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21966274BE2B47E126C7F075 /* Pods-mc6_2019_hackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mc6_2019_hackathon.release.xcconfig"; path = "Pods/Target Support Files/Pods-mc6_2019_hackathon/Pods-mc6_2019_hackathon.release.xcconfig"; sourceTree = "<group>"; };
 		5C08B79D22A6C4220001A750 /* mc6_2019_hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mc6_2019_hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C08B7A022A6C4220001A750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C08B7A222A6C4220001A750 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,11 @@
 		5C08B7A722A6C4240001A750 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C08B7AA22A6C4240001A750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C08B7AC22A6C4240001A750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C08B7B422A6C59C0001A750 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		5C08B7B622A6C5BD0001A750 /* SocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketController.swift; sourceTree = "<group>"; };
+		5CCC722422A6D0B100FB6B68 /* mc6_2019_hackathon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mc6_2019_hackathon.entitlements; sourceTree = "<group>"; };
+		9B1F5CFB79AD2579EACE9B08 /* Pods_mc6_2019_hackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mc6_2019_hackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C66520DBFD487AC23FC298E2 /* Pods-mc6_2019_hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mc6_2019_hackathon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mc6_2019_hackathon/Pods-mc6_2019_hackathon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +38,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7889D51903E04B71CBB016AC /* Pods_mc6_2019_hackathon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		176D1C6B84164DC3EA50690C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B1F5CFB79AD2579EACE9B08 /* Pods_mc6_2019_hackathon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5C08B79422A6C4220001A750 = {
 			isa = PBXGroup;
 			children = (
 				5C08B79F22A6C4220001A750 /* mc6_2019_hackathon */,
 				5C08B79E22A6C4220001A750 /* Products */,
+				C8928C765B7B50CBAC6EE606 /* Pods */,
+				176D1C6B84164DC3EA50690C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +74,26 @@
 		5C08B79F22A6C4220001A750 /* mc6_2019_hackathon */ = {
 			isa = PBXGroup;
 			children = (
+				5CCC722422A6D0B100FB6B68 /* mc6_2019_hackathon.entitlements */,
 				5C08B7A022A6C4220001A750 /* AppDelegate.swift */,
 				5C08B7A222A6C4220001A750 /* ViewController.swift */,
 				5C08B7A422A6C4220001A750 /* Main.storyboard */,
 				5C08B7A722A6C4240001A750 /* Assets.xcassets */,
 				5C08B7A922A6C4240001A750 /* LaunchScreen.storyboard */,
 				5C08B7AC22A6C4240001A750 /* Info.plist */,
+				5C08B7B422A6C59C0001A750 /* APIController.swift */,
+				5C08B7B622A6C5BD0001A750 /* SocketController.swift */,
 			);
 			path = mc6_2019_hackathon;
+			sourceTree = "<group>";
+		};
+		C8928C765B7B50CBAC6EE606 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C66520DBFD487AC23FC298E2 /* Pods-mc6_2019_hackathon.debug.xcconfig */,
+				21966274BE2B47E126C7F075 /* Pods-mc6_2019_hackathon.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +103,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C08B7AF22A6C4240001A750 /* Build configuration list for PBXNativeTarget "mc6_2019_hackathon" */;
 			buildPhases = (
+				2671A60C7B9D33D1EA737E31 /* [CP] Check Pods Manifest.lock */,
 				5C08B79922A6C4220001A750 /* Sources */,
 				5C08B79A22A6C4220001A750 /* Frameworks */,
 				5C08B79B22A6C4220001A750 /* Resources */,
+				F380D5504236C5054263C461 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +130,11 @@
 				TargetAttributes = {
 					5C08B79C22A6C4220001A750 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -130,6 +169,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2671A60C7B9D33D1EA737E31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mc6_2019_hackathon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F380D5504236C5054263C461 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-mc6_2019_hackathon/Pods-mc6_2019_hackathon-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSocket.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mc6_2019_hackathon/Pods-mc6_2019_hackathon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5C08B79922A6C4220001A750 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -137,6 +215,8 @@
 			files = (
 				5C08B7A322A6C4220001A750 /* ViewController.swift in Sources */,
 				5C08B7A122A6C4220001A750 /* AppDelegate.swift in Sources */,
+				5C08B7B722A6C5BD0001A750 /* SocketController.swift in Sources */,
+				5C08B7B522A6C59C0001A750 /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +360,7 @@
 		};
 		5C08B7B022A6C4240001A750 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C66520DBFD487AC23FC298E2 /* Pods-mc6_2019_hackathon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +379,7 @@
 		};
 		5C08B7B122A6C4240001A750 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21966274BE2B47E126C7F075 /* Pods-mc6_2019_hackathon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
