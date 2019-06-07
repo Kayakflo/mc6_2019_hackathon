@@ -49,10 +49,50 @@ class ViewController: UIViewController {
         
         let leftStick = TLAnalogJoystick(withDiameter: 100)
         leftStick.position = CGPoint(x: (backgroundNode.size.width / -2) + 150, y: (backgroundNode.size.height / -2) + 100)
+        leftStick.on(.move) { (joystick) in
+            let pVelocity = joystick.velocity;
+            let changeFwBw = (pVelocity.x / joystick.radius) * 500
+            if changeFwBw > 0 {
+                // API Controller fly forwards
+            } else if changeFwBw < 0 {
+                // API Controller fly backwards
+            }
+            
+            let changeLeftRight = (pVelocity.y / joystick.radius) * 500
+            if changeLeftRight > 0  {
+                // API Controller fly right
+            } else if changeLeftRight < 0 {
+                // API Controller fly left
+            }
+        }
+        
+        leftStick.on(.end) { (joystick) in
+            // API Controller stop flight
+        }
         
         let rightStick = TLAnalogJoystick(withDiameter: 100)
         rightStick.position = CGPoint(x: (backgroundNode.size.width / 2) - 150, y: (backgroundNode.size.height / -2) + 100)
-
+        rightStick.on(.move) { (joystick) in
+            let pVelocity = joystick.velocity;
+            let changeUpDown = (pVelocity.x / joystick.radius) * 500
+            if changeUpDown > 0 {
+                // API Controller fly up
+            } else if changeUpDown < 0 {
+                // API Controller fly down
+            }
+                
+            let changeRotate = (pVelocity.y / joystick.radius) * 180
+            if changeRotate > 0 {
+                // API Controller rotate right
+            } else if changeRotate < 0 {
+                // API Controller rotate left
+            }
+        }
+        
+        rightStick.on(.end) { (joystick) in
+            // API Controller stop flight
+        }
+        
         backgroundNode.addChild(leftStick)
         backgroundNode.addChild(rightStick)
         
