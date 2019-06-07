@@ -13,11 +13,15 @@ import AVFoundation
 class ViewController: UIViewController {
     var videoOn = false
     
+    @IBOutlet var debugLabel: UILabel!
     @IBOutlet weak var preView: UIImageView!
     @IBOutlet weak var video_btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initSockets()
+        APIController.shared.stateUpdate = { byte, string, int in
+            self.debugLabel.text = "\(byte) \(string) \(int)"
+        }
     }
     
     @IBAction func video_btn(_ sender: Any) {

@@ -12,6 +12,7 @@ import SceneKit
 class APIController {
     
     static let shared = APIController()
+    public var stateUpdate: (([UInt8]?, String, Int) -> Void)!
     
     private init(){}
     
@@ -190,9 +191,7 @@ class APIController {
     }
     
     func stateUpdated(message: ([UInt8]?, String, Int)){
-        print(message.0)
-        print(message.1)
-        print(message.2)
+        self.stateUpdate(message.0, message.1, message.2)
     }
     
 }

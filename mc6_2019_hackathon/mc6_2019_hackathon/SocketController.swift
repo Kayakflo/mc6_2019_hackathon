@@ -34,7 +34,7 @@ class SocketController: VideoFrameDecoderDelegate {
         DispatchQueue.global(qos: .userInteractive).async {
             while true {
                 let msg = self.statusServer.recv(1024)
-                APIController.shared.stateUpdated(msg)
+                APIController.shared.stateUpdated(message: msg)
             }
         }
     }

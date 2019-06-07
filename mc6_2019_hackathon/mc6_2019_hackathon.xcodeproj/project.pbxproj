@@ -368,13 +368,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MTH94VFFCX;
+				DEVELOPMENT_TEAM = 233G4GB2JD;
 				INFOPLIST_FILE = mc6_2019_hackathon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.solutap.mc6-2019-hackathon";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.solutap.mc6-2019-hackathon69";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -387,13 +387,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MTH94VFFCX;
+				DEVELOPMENT_TEAM = 233G4GB2JD;
 				INFOPLIST_FILE = mc6_2019_hackathon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.solutap.mc6-2019-hackathon";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.solutap.mc6-2019-hackathon69";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
