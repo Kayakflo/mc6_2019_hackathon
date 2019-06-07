@@ -12,7 +12,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var preView: UIView!
+    @IBOutlet weak var preView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         sleep(5)
         SocketController.singleton.initStreamServer { (cgImage) in
             DispatchQueue.main.async {
-                self.preView.backgroundColor = UIColor(patternImage: UIImage(cgImage: cgImage))
+                self.preView.image = UIImage(cgImage: cgImage)
             }
         }
     }    

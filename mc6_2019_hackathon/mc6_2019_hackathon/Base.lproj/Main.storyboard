@@ -18,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIj-qf-mmS">
-                                <rect key="frame" x="20" y="581" width="374" height="281"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5D-26-UXq">
                                 <rect key="frame" x="183" y="433" width="48" height="30"/>
                                 <state key="normal" title="Lift Off"/>
@@ -29,20 +25,25 @@
                                     <action selector="liftoff:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kic-wS-0VE"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cT-jU-CEF">
+                                <rect key="frame" x="20" y="575" width="372" height="279"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="279" id="CfP-KF-DWF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="J5D-26-UXq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2rK-kE-CKg"/>
                             <constraint firstItem="J5D-26-UXq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EVf-PV-hsq"/>
-                            <constraint firstItem="mIj-qf-mmS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IET-0A-OX5"/>
-                            <constraint firstItem="mIj-qf-mmS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="581" id="PGc-sr-z4i"/>
-                            <constraint firstItem="mIj-qf-mmS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cKb-hv-xig"/>
-                            <constraint firstItem="mIj-qf-mmS" firstAttribute="centerX" secondItem="J5D-26-UXq" secondAttribute="centerX" id="jZr-M8-c3j"/>
-                            <constraint firstItem="mIj-qf-mmS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yQl-yK-2M5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2cT-jU-CEF" secondAttribute="bottom" constant="8" id="Ek8-ye-RuG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2cT-jU-CEF" secondAttribute="trailing" constant="22" id="PkK-Fz-cn9"/>
+                            <constraint firstItem="2cT-jU-CEF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="yxX-7E-YIr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="preView" destination="mIj-qf-mmS" id="IVQ-xG-rOP"/>
+                        <outlet property="preView" destination="2cT-jU-CEF" id="EOw-jv-Cnf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
