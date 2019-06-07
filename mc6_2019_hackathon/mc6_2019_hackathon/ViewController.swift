@@ -11,21 +11,33 @@ import AVKit
 import AVFoundation
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var preView: UIView!
+    var videoOn = false
+    
+    @IBOutlet weak var preView: UIImageView!
+    @IBOutlet weak var video_btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        SocketController.singleton.initStatusServer()
+        self.initSockets()
     }
-
-    @IBAction func liftoff(_ sender: Any) {
-        SocketController.singleton.initCommandClient()
-        sleep(5)
-        SocketController.singleton.initStreamServer { (cgImage) in
-            DispatchQueue.main.async {
-                self.preView.backgroundColor = UIColor(patternImage: UIImage(cgImage: cgImage))
+    
+    @IBAction func video_btn(_ sender: Any) {
+        if videoOn {
+            SocketController.singleton.deinitStreamServer()
+            self.video_btn.setBackgroundImage(UIImage(named: "video_off"), for: .normal)
+        } else {
+            self.video_btn.setBackgroundImage(UIImage(named: "video_on"), for: .normal)
+            SocketController.singleton.initStreamServer { (cgImage) in
+                DispatchQueue.main.async {
+                    self.preView.image = UIImage(cgImage: cgImage)
+                }
             }
         }
-    }    
+        self.videoOn = !self.videoOn
+    }
+    
+    func initSockets() {
+        SocketController.singleton.initCommandClient()
+        SocketController.singleton.initStatusServer()
+    }   
 }
 
