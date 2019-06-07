@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var preView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        SocketController.singleton.initStatusServer()
     }
 
     @IBAction func liftoff(_ sender: Any) {

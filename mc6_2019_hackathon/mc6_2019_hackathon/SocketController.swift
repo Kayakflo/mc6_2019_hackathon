@@ -34,6 +34,7 @@ class SocketController: VideoFrameDecoderDelegate {
         statusServer = UDPServer(address: "0.0.0.0", port: 8890)
         while true {
             let msg = statusServer.recv(1024)
+            APIController.shared.stateUpdated(msg)
         }
     }
     
