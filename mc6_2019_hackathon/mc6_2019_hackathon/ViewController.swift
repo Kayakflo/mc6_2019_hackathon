@@ -13,17 +13,53 @@ import AVFoundation
 class ViewController: UIViewController {
     var videoOn = false
     
+    @IBOutlet var stats_lbl: UILabel!
     @IBOutlet var debugLabel: UILabel!
     @IBOutlet weak var preView: UIImageView!
     @IBOutlet weak var video_btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initSockets()
+        //self.initSockets()
         APIController.shared.stateUpdate = { byte, string, int in
             DispatchQueue.main.async{
-                 self.debugLabel.text = "\(byte) \(string) \(int)"
+                guard let byte = byte else {return}
+                if let byteString = String(bytes: byte, encoding: .utf8) {
+                    
+                    let infos = byteString.split(separator: ";")
+                    var battery: String?
+                    var height: String?
+                    var time: String?
+                    
+                    for info in infos{
+                        let infoTupel = self.parseStatsInfo(info: String(info))
+                        if infoTupel.0 == "bat"{
+                            battery = infoTupel.1
+                        }
+                        else if infoTupel.0 == "h"{
+                            height = infoTupel.1
+                        }
+                        else if infoTupel.0 == "time"{
+                            time = infoTupel.1
+                        }
+                    }
+                    self.debugLabel.text = "\(battery!) % \(height!) cm \(time!)"
+                }
             }
         }
+        APIController.shared.statsUpdate = {byte, string, int in
+            DispatchQueue.main.async{
+                self.stats_lbl.text = "\(byte) \(string) \(int)"
+            }
+        }
+    }
+    
+    func parseStatsInfo(info: String) -> (String, String){
+        guard let colonIndex = info.firstIndex(of: ":") else {return ("","")}
+        let key = info.prefix(upTo: colonIndex)
+        print(key)
+        let value = info.suffix(from: info.index(after: colonIndex))
+        print(value)
+        return (String(key), String(value))
     }
     
     @IBAction func video_btn(_ sender: Any) {
@@ -84,6 +120,11 @@ class ViewController: UIViewController {
     @IBAction func stats_btn(_ sender: Any) {
         APIController.shared.sendReadCommand(command: .BATTERY, response: {bool in})
     }
+    
+    @IBAction func connect_btn(_ sender: Any) {
+        initSockets()
+    }
+    
     
     func initSockets() {
         SocketController.singleton.initCommandClient()

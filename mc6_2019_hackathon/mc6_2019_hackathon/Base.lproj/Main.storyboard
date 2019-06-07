@@ -29,8 +29,8 @@
                                     <action selector="video_btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6h9-z4-x5m"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7F-da-1HN">
-                                <rect key="frame" x="64" y="348" width="768" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="state" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7F-da-1HN">
+                                <rect key="frame" x="64" y="348" width="768" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -124,6 +124,21 @@
                                     <action selector="left_btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Sm-Ae-dAX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="stats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPr-zJ-fWe">
+                                <rect key="frame" x="64" y="20" width="227" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNb-iH-qoA">
+                                <rect key="frame" x="239" y="15" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connect_btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="geO-5U-O9l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -139,6 +154,7 @@
                     <connections>
                         <outlet property="debugLabel" destination="a7F-da-1HN" id="wYs-m8-MfN"/>
                         <outlet property="preView" destination="2cT-jU-CEF" id="EOw-jv-Cnf"/>
+                        <outlet property="stats_lbl" destination="LPr-zJ-fWe" id="fYZ-uF-toW"/>
                         <outlet property="video_btn" destination="J5D-26-UXq" id="GHI-93-yQR"/>
                     </connections>
                 </viewController>

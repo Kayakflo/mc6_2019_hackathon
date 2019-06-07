@@ -13,6 +13,7 @@ class APIController {
     
     static let shared = APIController()
     public var stateUpdate: (([UInt8]?, String, Int) -> Void)!
+    public var statsUpdate: (([UInt8]?, String, Int) -> Void)!
     
     private init(){}
     
@@ -192,6 +193,10 @@ class APIController {
     
     func stateUpdated(message: ([UInt8]?, String, Int)){
         self.stateUpdate(message.0, message.1, message.2)
+    }
+    
+    func statsUpdate(message: ([UInt8]?, String, Int)) {
+        self.statsUpdate(message.0, message.1, message.2)
     }
     
 }
