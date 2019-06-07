@@ -21,7 +21,7 @@ class APIController {
         case .COMMAND:
             SocketController.singleton.commandClient.send(string: "command")
         case .TAKEOFF:
-            SocketController.singleton.commandClient.send(string: "takoff")
+            SocketController.singleton.commandClient.send(string: "takeoff")
         case .LAND:
             SocketController.singleton.commandClient.send(string: "land")
         case .STREAMON:
@@ -123,7 +123,7 @@ class APIController {
                 response(false)
                 return
             }
-            if direction == "l" || direction == "r" || direction == "f" || direction == "b"{
+            if direction == "l" ||  direction == "r" || direction == "f" || direction == "b"{
                 SocketController.singleton.commandClient.send(string: "flip \(direction)")
             }
             else{

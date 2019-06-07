@@ -20,7 +20,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.initSockets()
         APIController.shared.stateUpdate = { byte, string, int in
-            self.debugLabel.text = "\(byte) \(string) \(int)"
+            DispatchQueue.main.async{
+                 self.debugLabel.text = "\(byte) \(string) \(int)"
+            }
         }
     }
     
@@ -39,9 +41,54 @@ class ViewController: UIViewController {
         self.videoOn = !self.videoOn
     }
     
+    @IBAction func emergency_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .EMERGENCY, params: nil, response: {bool in})
+    }
+    
+    @IBAction func land_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .LAND, params: nil, response: {bool in})
+    }
+    
+    @IBAction func flip_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .FLIP, params: Character("r"), response: {bool in})
+    }
+    
+    @IBAction func forward_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .FORWARD, params: 20, response: {bool in})
+    }
+    
+    @IBAction func left_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .LEFT, params: 20, response: {bool in})
+    }
+    
+    @IBAction func back_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .BACK, params: 20, response: {bool in})
+    }
+    
+    @IBAction func right_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .RIGHT, params: 20, response: {bool in})
+    }
+    
+    @IBAction func takeoff_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .TAKEOFF, params: nil, response: {bool in})
+    }
+    
+    @IBAction func up_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .UP, params: 20, response: {bool in})
+    }
+    
+    @IBAction func down_btn(_ sender: Any) {
+        APIController.shared.sendWriteCommand(command: .DOWN, params: 20, response: {bool in})
+    }
+    
+    @IBAction func stats_btn(_ sender: Any) {
+        APIController.shared.sendReadCommand(command: .BATTERY, response: {bool in})
+    }
+    
     func initSockets() {
         SocketController.singleton.initCommandClient()
         SocketController.singleton.initStatusServer()
+        SocketController.singleton.initCommandServer()
     }   
 }
 

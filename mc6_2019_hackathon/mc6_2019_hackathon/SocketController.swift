@@ -15,6 +15,7 @@ class SocketController: VideoFrameDecoderDelegate {
     var commandClient: UDPClient!
     var streamServer: UDPServer!
     var statusServer: UDPServer!
+    var commandServer: UDPServer!
     var onImage: (_ image: CGImage) -> () = { arg in }
     
     func initCommandClient() {
@@ -27,6 +28,16 @@ class SocketController: VideoFrameDecoderDelegate {
     func deinitCommandClient() {
         self.commandClient.close()
         self.commandClient = nil
+    }
+    
+    func initCommandServer() {
+        commandServer = UDPServer(address: "192.168.10.1", port: 8889)
+        DispatchQueue.global(qos: .default).async {
+            while true {
+                let msg = self.commandServer.recv(1024)
+                APIController.shared.stateUpdated(message: msg)
+            }
+        }
     }
     
     func initStatusServer() {
