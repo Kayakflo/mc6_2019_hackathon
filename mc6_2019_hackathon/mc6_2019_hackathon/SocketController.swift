@@ -31,7 +31,7 @@ class SocketController: VideoFrameDecoderDelegate {
     
     func initStatusServer() {
         statusServer = UDPServer(address: "0.0.0.0", port: 8890)
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.global(qos: .default).async {
             while true {
                 let msg = self.statusServer.recv(1024)
             }
