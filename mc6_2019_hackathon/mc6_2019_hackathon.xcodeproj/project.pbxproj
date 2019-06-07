@@ -15,6 +15,7 @@
 		5C08B7B522A6C59C0001A750 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C08B7B422A6C59C0001A750 /* APIController.swift */; };
 		5C08B7B722A6C5BD0001A750 /* SocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C08B7B622A6C5BD0001A750 /* SocketController.swift */; };
 		5C6B330322A7F2D600681B23 /* H264Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B330222A7F2D600681B23 /* H264Decoder.swift */; };
+		5CCF190422AA6229006EE7D8 /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCF190322AA6229006EE7D8 /* TLAnalogJoystick.swift */; };
 		7889D51903E04B71CBB016AC /* Pods_mc6_2019_hackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1F5CFB79AD2579EACE9B08 /* Pods_mc6_2019_hackathon.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		5C08B7B622A6C5BD0001A750 /* SocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketController.swift; sourceTree = "<group>"; };
 		5C6B330222A7F2D600681B23 /* H264Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H264Decoder.swift; sourceTree = "<group>"; };
 		5CCC722422A6D0B100FB6B68 /* mc6_2019_hackathon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mc6_2019_hackathon.entitlements; sourceTree = "<group>"; };
+		5CCF190322AA6229006EE7D8 /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
 		9B1F5CFB79AD2579EACE9B08 /* Pods_mc6_2019_hackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mc6_2019_hackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66520DBFD487AC23FC298E2 /* Pods-mc6_2019_hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mc6_2019_hackathon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mc6_2019_hackathon/Pods-mc6_2019_hackathon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 				5C08B7B422A6C59C0001A750 /* APIController.swift */,
 				5C08B7B622A6C5BD0001A750 /* SocketController.swift */,
 				5C6B330222A7F2D600681B23 /* H264Decoder.swift */,
+				5CCF190322AA6229006EE7D8 /* TLAnalogJoystick.swift */,
 			);
 			path = mc6_2019_hackathon;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				5C08B7A322A6C4220001A750 /* ViewController.swift in Sources */,
 				5C08B7A122A6C4220001A750 /* AppDelegate.swift in Sources */,
 				5C6B330322A7F2D600681B23 /* H264Decoder.swift in Sources */,
+				5CCF190422AA6229006EE7D8 /* TLAnalogJoystick.swift in Sources */,
 				5C08B7B722A6C5BD0001A750 /* SocketController.swift in Sources */,
 				5C08B7B522A6C59C0001A750 /* APIController.swift in Sources */,
 			);

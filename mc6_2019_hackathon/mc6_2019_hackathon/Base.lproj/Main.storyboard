@@ -29,20 +29,30 @@
                                     <action selector="video_btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6h9-z4-x5m"/>
                                 </connections>
                             </button>
+                            <skView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sg5-PJ-Bpr">
+                                <rect key="frame" x="0.0" y="114" width="896" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="ZB6-YW-DyZ"/>
+                                </constraints>
+                            </skView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="2cT-jU-CEF" secondAttribute="bottom" id="3qy-EE-ZiZ"/>
+                            <constraint firstItem="Sg5-PJ-Bpr" firstAttribute="leading" secondItem="2cT-jU-CEF" secondAttribute="leading" id="9Lg-uE-cCL"/>
                             <constraint firstItem="2cT-jU-CEF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GTL-SX-ytM"/>
+                            <constraint firstItem="Sg5-PJ-Bpr" firstAttribute="trailing" secondItem="2cT-jU-CEF" secondAttribute="trailing" id="IXb-jT-hYo"/>
                             <constraint firstItem="J5D-26-UXq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="Jxo-JE-IHW"/>
                             <constraint firstItem="J5D-26-UXq" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="N82-15-mhU"/>
                             <constraint firstAttribute="trailing" secondItem="2cT-jU-CEF" secondAttribute="trailing" id="cl8-be-vb9"/>
                             <constraint firstItem="2cT-jU-CEF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dQM-7Y-W1h"/>
+                            <constraint firstItem="Sg5-PJ-Bpr" firstAttribute="bottom" secondItem="2cT-jU-CEF" secondAttribute="bottom" id="fbZ-zQ-HLR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="preView" destination="2cT-jU-CEF" id="EOw-jv-Cnf"/>
+                        <outlet property="skView" destination="Sg5-PJ-Bpr" id="gF9-5S-itc"/>
                         <outlet property="video_btn" destination="J5D-26-UXq" id="GHI-93-yQR"/>
                     </connections>
                 </viewController>
