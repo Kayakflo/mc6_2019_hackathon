@@ -93,46 +93,32 @@ class ViewController: UIViewController {
         leftStick.position = CGPoint(x: (backgroundNode.size.width / -2) + 150, y: (backgroundNode.size.height / -2) + 100)
         leftStick.on(.move) { (joystick) in
             let pVelocity = joystick.velocity;
-            let changeFwBw = (pVelocity.x / joystick.radius) * 500
-            if changeFwBw > 0 {
-                // API Controller fly forwards
-            } else if changeFwBw < 0 {
-                // API Controller fly backwards
-            }
-            
-            let changeLeftRight = (pVelocity.y / joystick.radius) * 500
-            if changeLeftRight > 0  {
-                // API Controller fly right
-            } else if changeLeftRight < 0 {
-                // API Controller fly left
-            }
+            let changeFwBw = Int((pVelocity.y / joystick.radius) * 100)
+            let changeLeftRight = Int((pVelocity.x / joystick.radius) * 100)
+            APIController.shared.movementState.forward = changeFwBw
+            APIController.shared.movementState.right = changeLeftRight
         }
         
         leftStick.on(.end) { (joystick) in
-            // API Controller stop flight
+            APIController.shared.movementState.forward = 0
+            APIController.shared.movementState.right = 0
+            APIController.shared.sendWriteCommand(command: .STOP, params: nil, response: { bool in })
         }
         
         let rightStick = TLAnalogJoystick(withDiameter: 100)
         rightStick.position = CGPoint(x: (backgroundNode.size.width / 2) - 150, y: (backgroundNode.size.height / -2) + 100)
         rightStick.on(.move) { (joystick) in
             let pVelocity = joystick.velocity;
-            let changeUpDown = (pVelocity.x / joystick.radius) * 500
-            if changeUpDown > 0 {
-                // API Controller fly up
-            } else if changeUpDown < 0 {
-                // API Controller fly down
-            }
-                
-            let changeRotate = (pVelocity.y / joystick.radius) * 180
-            if changeRotate > 0 {
-                // API Controller rotate right
-            } else if changeRotate < 0 {
-                // API Controller rotate left
-            }
+            let changeUpDown = Int((pVelocity.y / joystick.radius) * 100)
+            let changeRotate = Int((pVelocity.x / joystick.radius) * 100)
+            APIController.shared.movementState.up = changeUpDown
+            APIController.shared.movementState.rotate = changeRotate
         }
         
         rightStick.on(.end) { (joystick) in
-            // API Controller stop flight
+            APIController.shared.movementState.up = 0
+            APIController.shared.movementState.rotate = 0
+            APIController.shared.sendWriteCommand(command: .STOP, params: nil, response: { bool in })
         }
         
         backgroundNode.addChild(leftStick)

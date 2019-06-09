@@ -14,8 +14,27 @@ class APIController {
     static let shared = APIController()
     public var stateUpdate: (([UInt8]?, String, Int) -> Void)!
     public var statsUpdate: (([UInt8]?, String, Int) -> Void)!
+    public var movementState = (forward: 0, right: 0, up: 0, rotate: 0)
     
-    private init(){}
+    private init(){
+        startCycle()
+    }
+    
+    func startCycle() {
+        DispatchQueue.global(qos: .default).async {
+            while true {
+                if SocketController.singleton.commandClient == nil {
+                    sleep(1)
+                    continue
+                }
+                self.sendWriteCommand(command: .RC, params: simd_int4(Int32(self.movementState.forward), Int32(self.movementState.right) * -1, Int32(self.movementState.up), Int32(self.movementState.rotate)), response: { (success) in
+                    //
+                })
+                //sleep(1)
+                usleep(200000) // 0.2s Sleep
+            }
+        }
+    }
     
     func sendWriteCommand(command: WriteCommand, params: Any?, response: (Bool) -> Void) {
         switch command {
@@ -131,11 +150,12 @@ class APIController {
                 response(false)
             }
         case .GO:
-            guard let coordinates = params as? SCNVector4 else {
+            guard let coordinates = params as? simd_int4 else {
                 response(false)
                 return
             }
-            if coordinates.x > -20 && coordinates.x < 20 || coordinates.y > -20 && coordinates.y < 20 || coordinates.z > -20 && coordinates.z < 20{
+            
+            if coordinates.x > -20 && coordinates.x < 20 && coordinates.y > -20 && coordinates.y < 20 && coordinates.z > -20 && coordinates.z < 20 {
                 response(false)
                 return
             }
@@ -147,7 +167,15 @@ class APIController {
                 response(false)
                 return
             }
+
             SocketController.singleton.commandClient.send(string: "go \(coordinates.x) \(coordinates.y) \(coordinates.z) \(coordinates.w)")
+        case .RC:
+            guard let coordinates = params as? simd_int4 else {
+                response(false)
+                return
+            }
+            print("rc \(coordinates.y) \(coordinates.x) \(coordinates.z) \(coordinates.w)")
+            SocketController.singleton.commandClient.send(string: "rc \(coordinates.y) \(coordinates.x) \(coordinates.z) \(coordinates.w)")
         case .STOP:
             SocketController.singleton.commandClient.send(string: "stop")
         case .SPEED:
@@ -218,6 +246,7 @@ enum WriteCommand{
     case ROTATE_CCW
     case FLIP
     case GO
+    case RC
     case STOP
     case SPEED
     case WIFI
