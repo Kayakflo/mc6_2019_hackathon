@@ -76,13 +76,15 @@ class VideoFrameDecoder {
                 }
             }
             
-            if !createFormatDescription(sps: sps!, pps: pps!) {
-                print("===== ===== Failed to create formatDesc")
-                return
-            }
-            if !createDecompressionSession() {
-                print("===== ===== Failed to create decompressionSession")
-                return
+            if sps != nil && pps != nil {
+                if !createFormatDescription(sps: sps!, pps: pps!) {
+                    print("===== ===== Failed to create formatDesc")
+                    return
+                }
+                if !createDecompressionSession() {
+                    print("===== ===== Failed to create decompressionSession")
+                    return
+                }
             }
         }
         
